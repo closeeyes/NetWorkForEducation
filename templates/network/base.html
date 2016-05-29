@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+	<title>{% block block_title %}
+	this is base template		
+	{% endblock block_title %}
+	</title>
+</head>
+<body>
+	<h1><strong>wait for changes</strong></h1>
+	<div>
+		{% block block_body1 %}
+		<img src= "{% static "images/teacher.jpg" %}" alt='teacher' width="720" height="480">
+		{% endblock block_body1 %}
+	</div>
+
+	<h1><strong>to judge wheather logged</strong></h1>
+	<div>
+		<ul>
+		
+		</ul>
+	</div>
+</body>
+</html>
