@@ -1,0 +1,35 @@
+<!--  视频bofang  页面 -->
+
+{% extends "network/index.html" %}
+{% load staticfiles %}
+{% block block_title %}
+	videoname
+{% endblock block_title %}
+
+
+{% block block_body1 %}
+
+	<h1>video</h1>
+
+<!-- {% block horse %}
+		
+{% endblock horse %}	
+-->
+
+{% block video1 %}
+	{% if video %}
+	<a href="{{ video.url }}"> <img src="{% static "images/python1.jpg" %}" alt=""></a>  
+		<!-- <a href="{{ video.url }}">{{ video.name }} </a> -->	    
+	        <span id="ppp">已经有{{video.count}}人学习</span>	
+	{% endif %}
+	
+	      
+
+	
+{% endblock video1 %}
+
+{% block video2 %}
+	
+{% endblock video2 %}
+
+{% endblock block_body1 %}

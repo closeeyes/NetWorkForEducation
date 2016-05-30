@@ -1,8 +1,14 @@
+#encoding=utf-8
+
 from django.contrib import admin
 from network.models import Video,Articles,Questions,History,PersonInfo,Score,UserInfo,Comment
 # Register your models here.
 
-admin.site.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+	#list_display = ('title', 'category', 'url')
+	prepopulated_fields={'slug':('name',)}
+
+admin.site.register(Video,VideoAdmin)
 admin.site.register(Articles)
 admin.site.register(Questions)
 admin.site.register(History)

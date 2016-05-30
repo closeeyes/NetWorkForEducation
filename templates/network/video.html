@@ -1,5 +1,7 @@
-{% extends "network/base.html" %}
+<!--  视频库  页面 -->
 
+{% extends "network/index.html" %}
+{% load staticfiles %}
 {% block block_title %}
 	videoname
 {% endblock block_title %}
@@ -9,6 +11,38 @@
 
 	<h1>video</h1>
 
-<embed src="http://player.video.qiyi.com/a6c5807899be7e90a243c2956ab2bddb/0/0/w_19rt2shlkl.swf-albumId=5869968409-tvId=5869968409-isPurchase=0-cnId=20" allowFullScreen="true" quality="high" width="480" height="350" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>	
+<!--- {% block horse %}
+		
+{% endblock horse %}	
+-->
+
+{% block video1 %}
+
+	{% if categories %}
+	<ul>
+	{% for video in  categories %}
+	  <div class="col-sm-6 col-md-3">
+	    <div class="thumbnail">
+	    <li>
+	      <a href="/network/videoPlay/{{ video.slug}}"> <img src="{% static "images/python1.jpg" %}" alt=""></a>  
+		<!-- <a href="{{ video.url }}">{{ video.name }} </a> -->	
+	    </li>
+	         <div class="caption">
+	      <a href=""></a>
+	        <h4>{{video.title}}</h4>
+	        <br/>
+	        <span id="ppp">已经有{{video.count}}人学习</span>
+	      </div>
+	    </div>
+	  </div>
+	{% endfor %}
+	</ul>
+	{% endif %}
+	
+{% endblock video1 %}
+
+{% block video2 %}
+	
+{% endblock video2 %}
 
 {% endblock block_body1 %}

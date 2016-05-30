@@ -1,5 +1,7 @@
-from django.db import models
+#encoding=utf-8
 
+from django.db import models
+from django.template.defaultfilters import slugify
 # Create your models here.
 
 class  Video(models.Model):
@@ -7,14 +9,23 @@ class  Video(models.Model):
 	url=models.CharField(max_length=256,default="")
 	stage=models.CharField(max_length=128,default="")
 	subj=models.CharField(max_length=128,default="")
-	name=models.CharField(max_length=128,unique=True)
+	name=models.CharField(max_length=128,unique=True,default="")
+	title=models.CharField(max_length=128,unique=True,default="")
+	count=models.IntegerField(default=0)
+	slug=models.SlugField(unique=True,default="")
+
+	def save(self,*args,**kwargs):
+		self.slug=slugify(self.name)
+		super(Video,self).save(*args,**kwargs)
+	def __unicode__(self):
+		return self.name
 
 class  Articles(models.Model):
 	mid=models.IntegerField(default=0)	
 	title=models.CharField(max_length=256,default="")
 	subj=models.CharField(max_length=128,default="")
 	content=models.CharField(max_length=128,default="")
-	readcount=models.IntegerField(default=0)
+	count=models.IntegerField(default=0)
 	goodcount=models.IntegerField(default=0)	
 	comment=models.CharField(max_length=256,default="")
 
